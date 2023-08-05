@@ -1,4 +1,4 @@
-//API  https://opentdb.com/api.php?amount=10&category=17&difficulty=easy&type=multiple
+//API  https://opentdb.com/api.php?amount=10&category=17&difficulty=easy&type=multiple api doesn't need api key 
 const submitbtn = document.getElementById("submit");
 
 function counter() {
@@ -20,7 +20,7 @@ let count = 0;
 
 window.addEventListener('load', fetchData());
 
-//ye api se data fetch karta hai
+//fetch data from api
 function fetchData() {
     let exam = fetch("https://opentdb.com/api.php?amount=1&category=17&difficulty=easy&type=multiple")
         .then((value) => {
@@ -41,7 +41,7 @@ function fetchData() {
             checkAns(answer);
         })
 
-    // ye api ke data ko html me show karta hai
+    // for populate api data
     function showData(question, options) {
         let que = document.getElementById("que");
         que.innerHTML = question;
@@ -49,7 +49,7 @@ function fetchData() {
         ops.innerHTML = `<li>${options[0]}</l><li>${options[1]}</l><li>${options[2]}</l><li>${options[3]}</l>`
     }
 
-    //ye charo options me se ek select karta hai
+    //input select
     function selectops() {
         ops.querySelectorAll('li').forEach((option) => {
             option.addEventListener('click', () => {
@@ -63,7 +63,7 @@ function fetchData() {
         })
     }
 
-    // ye Ans ko check karta hai// 
+    // for check ans
     function checkAns(ans) {
 
         submitbtn.value = ans;
@@ -94,13 +94,6 @@ function fetchData() {
                 submitbtn.removeEventListener('click', click);
             }
 
-            // pata ni kyu ni chala//
-            // ops.querySelectorAll('li').forEach(() => {
-            //     if (ops.querySelector('li').textContent === answer) {
-            //         ops.querySelector('li').classList.add('right')
-            //     }
-            //     console.log('1');
-            // });
         }
 
     }
